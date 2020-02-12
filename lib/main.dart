@@ -10,7 +10,8 @@ void main() {
 }
 
 class FlutterApp extends StatelessWidget {
-  final _longText = "ShaplaApu,ShaplaApu,ShaplaApu,ShaplaApu,ShaplaApu,ShaplaApu,ShaplaApu,"
+  final _longText =
+      "ShaplaApu,ShaplaApu,ShaplaApu,ShaplaApu,ShaplaApu,ShaplaApu,ShaplaApu,"
       "ShaplaApu,ShaplaApu,ShaplaApu,ShaplaApu,ShaplaApu,ShaplaApu"
       "She is My Honourable Teacher.\n ";
   final _shortText = "helo, shapla apu. you are my best teacher my apu...";
@@ -19,86 +20,80 @@ class FlutterApp extends StatelessWidget {
   Widget build(BuildContext context) {
     // TODO: implement build
     return new Scaffold(
-      appBar: new AppBar(title: new Text("Flutter App")),
-      backgroundColor: Colors.deepPurple,
-      body: ListView(
-        children: <Widget>[
-
-          Column(
-            children: <Widget>[
-              Image.asset("assets/images/pattern.png"),
-              Container(
-                child: Text(
-                  _longText+_longText+_longText, textAlign: TextAlign.left,
-
-                  style: new TextStyle(
-                      color: Colors.white, fontSize: 14, letterSpacing: 1.5),
+        appBar: new AppBar(title: new Text("Flutter App")),
+        backgroundColor: Colors.white,
+        body: Padding(
+            padding: EdgeInsets.all(20),
+            child: Column(
+              children: <Widget>[
+                Stack(
+                  children: <Widget>[
+                    Image.asset("assets/images/itech.png"),
+                    Positioned(
+                        bottom: 0,
+                        right: 20,
+                        child: Text(
+                          "soft  solutions",
+                          style: TextStyle(color: Colors.black, fontSize: 20),
+                        ))
+                  ],
                 ),
-                padding: EdgeInsets.all(14),
-              ),
-              Row(
-                children: <Widget>[
-                  Padding(
-                    padding: EdgeInsets.all(8),
-                    child: Container(
-                      height: 130,
-                      width: 100,
-                      decoration: BoxDecoration(
-                          color: Color(Helper.getHexToInt("#fd5e53")),
-                          borderRadius: BorderRadius.circular(10)),
-                      child: Icon(Icons.android),
-
-                      /* padding: EdgeInsets.all(10),
-                      margin: EdgeInsets.only(left: 10,),*/
-                      /*child:new Text("Android",
-                        textAlign: TextAlign.justify,
-                        style: new TextStyle(fontSize: 16, color: Colors.white),
-                      ),*/
+                SizedBox(
+                  height: 40,
+                ),
+                Text("I want to become a flutter dev."),
+                SizedBox(
+                  height: 40,
+                  width: 40,
+                  child: Container(
+                    decoration: BoxDecoration(
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.indigo,
+                            blurRadius: 2.0,
+                            // has the effect of softening the shadow
+                            spreadRadius: 2.5,
+                            // has the effect of extending the shadow
+                            offset: Offset(
+                              10.0, // horizontal, move right 10
+                              10.0, // vertical, move down 10
+                            ),
+                          )
+                        ]
                     ),
                   ),
+                ),
 
-                  //********************
-                  Padding(
-                      padding: EdgeInsets.all(8),
-                      child: Center(
-                        child: Container(
-                          height: 130,
-                          width: 100,
-                          decoration: BoxDecoration(
-                              color: Color(Helper.getHexToInt("#fd5e53")),
-                              borderRadius: BorderRadius.circular(10)),
-                          child: Icon(Icons.beach_access),
+                SizedBox(
+                  height: 30,
+                ),
 
-                          /* foregroundDecoration: BoxDecoration(
-                image: DecorationImage(
-                  image: NetworkImage('https://www.google.com/url?sa=i&url=https%3A%2F%2Fmorioh.com%2Fp%2F086972ec3aad&psig=AOvVaw2wnDO3g2cBKEjbmEEl_ICe&ust=1581276562439000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCNig6rfYwucCFQAAAAAdAAAAABAD')
-                )
-              ),*/
+                Row(children: <Widget>[
+                  _rowcell("#000000"),
+                  _rowcell("#e74cc3"),
+                  _rowcell("#675ab7"),
+                  _rowcell("#FD1A2C"),
+                  _rowcell("#000000"),
+                  _rowcell("#e74cc3"),
 
-                          /* padding: EdgeInsets.all(10),
-                      margin: EdgeInsets.only(left: 20, right: 20),
-                      child: Text(
+                ],)
 
-                        "Flutter App Devloper"
-                            "It is developed by google",
-                        textAlign: TextAlign.justify,
-                        style: new TextStyle(fontSize: 16, color: Colors.white),
-                      ),*/
-                        ),
-                      )),
-
-                  Column(
-                    children: <Widget>[],
-                  )
-                ],
-              ),
-            ],
-          ),
-
-        ],
-      )
-
-
+              ],
+            )
+        )
     );
   }
+
+  Widget _rowcell(String clr) {
+    return Expanded(
+         child: Container(height: 50, width: 50,decoration: BoxDecoration(color:
+         Color(Helper.getHexToInt(clr))),
+           child: Icon(Icons.android,color: Colors.white),
+
+         )
+    );
+
+
+  }
+
 }
